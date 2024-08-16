@@ -1,10 +1,8 @@
-import AppBar from '@/features/app-bar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Fast from '@/assets/fast.svg?react';
 import Slow from '@/assets/slow.svg?react';
-import './app.css';
 import { useState } from 'react';
 import dayjs from '@/lib/configured-dayjs';
 
@@ -30,7 +28,7 @@ function Time({ time, distance }: { time: string; distance: string }) {
   );
 }
 
-export function App() {
+export function Top() {
   const [secondsPerKm, setSecondsPerKm] = useState<number>(6 * 60);
   const handleChange = (_: Event, newValue: number | number[]) => {
     setSecondsPerKm(newValue as number);
@@ -43,7 +41,6 @@ export function App() {
 
   return (
     <>
-      <AppBar />
       <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, auto)' }}>
         <Time time={HmmssTime} distance={`${FULL_MARATHON_KM}km`} />
         <Time time={mmssPerKm} distance="km" />

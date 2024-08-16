@@ -2,7 +2,7 @@ import MUIAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-function AppBar() {
+export function AppBar() {
   return (
     <MUIAppBar position="fixed" sx={{ zIndex: 2000 }}>
       <Toolbar>
@@ -20,5 +20,3 @@ function AppBar() {
     </MUIAppBar>
   );
 }
-
-export default AppBar;
