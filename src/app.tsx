@@ -6,6 +6,9 @@ import Fast from '@/assets/fast.svg?react';
 import Slow from '@/assets/slow.svg?react';
 import './app.css';
 import { useState } from 'react';
+import dayjs from '@/lib/configured-dayjs';
+
+const FULL_MARATHON_KM = 42.195;
 
 function Time({ time, distance }: { time: string; distance: string }) {
   return (
@@ -27,38 +30,41 @@ function Time({ time, distance }: { time: string; distance: string }) {
   );
 }
 
-function App() {
+export function App() {
   const [secondsPerKm, setSecondsPerKm] = useState<number>(6 * 60);
   const handleChange = (_: Event, newValue: number | number[]) => {
     setSecondsPerKm(newValue as number);
   };
 
+  const mmssPerKm = dayjs.duration(secondsPerKm * 1000).format('mm:ss');
+  const HmmssTime = dayjs
+    .duration(secondsPerKm * FULL_MARATHON_KM * 1000)
+    .format('H:mm:ss');
+
   return (
     <>
       <AppBar />
       <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, auto)' }}>
-        <Time time="2:00:35" distance="42.195km" />
-        <Time time="2:50" distance="km" />
+        <Time time={HmmssTime} distance={`${FULL_MARATHON_KM}km`} />
+        <Time time={mmssPerKm} distance="km" />
       </Box>
       <Box sx={{ mt: 4 }}>
         <Slider
           aria-label="Pace"
           min={2.5 * 60}
-          max={8 * 60}
+          max={10 * 60}
           value={secondsPerKm}
           onChange={handleChange}
         />
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Slow fill="currentColor" />
+            <Fast fill="currentColor" />
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Fast fill="currentColor" />
+            <Slow fill="currentColor" />
           </Box>
         </Box>
       </Box>
     </>
   );
 }
-
-export default App;
