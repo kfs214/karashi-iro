@@ -1,8 +1,7 @@
 import { AppBar } from '@/app/components';
+import { Top } from '@/app/routes/top';
 
 import './app.css';
-
-import { Top } from '@/app/routes/top';
 
 export function App() {
   return (

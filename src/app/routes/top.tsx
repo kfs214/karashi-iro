@@ -1,9 +1,10 @@
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+
 import Fast from '@/assets/fast.svg?react';
 import Slow from '@/assets/slow.svg?react';
-import { useState } from 'react';
 import dayjs from '@/lib/configured-dayjs';
 
 const FULL_MARATHON_KM = 42.195;

@@ -4,13 +4,12 @@
 
   color-scheme: light dark;
   color: CanvasText;
-    background-color: Canvas;
+  background-color: Canvas;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 body {
   margin: 0;
@@ -19,4 +18,3 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
