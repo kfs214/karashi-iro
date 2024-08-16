@@ -24,6 +24,7 @@ export default tseslint.config({
     ...react.configs['jsx-runtime'].rules,
     ...reactHooks.configs.recommended.rules,
     'react/self-closing-comp': 'warn',
+    'react/jsx-curly-brace-presence': 'warn',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
