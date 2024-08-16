@@ -2,7 +2,10 @@ import AppBar from '@/features/app-bar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import Fast from '@/assets/fast.svg?react';
+import Slow from '@/assets/slow.svg?react';
 import './app.css';
+import { useState } from 'react';
 
 function Time({ time, distance }: { time: string; distance: string }) {
   return (
@@ -25,6 +28,11 @@ function Time({ time, distance }: { time: string; distance: string }) {
 }
 
 function App() {
+  const [secondsPerKm, setSecondsPerKm] = useState<number>(6 * 60);
+  const handleChange = (_: Event, newValue: number | number[]) => {
+    setSecondsPerKm(newValue as number);
+  };
+
   return (
     <>
       <AppBar />
@@ -32,7 +40,23 @@ function App() {
         <Time time="2:00:35" distance="42.195km" />
         <Time time="2:50" distance="km" />
       </Box>
-      <Slider />
+      <Box sx={{ mt: 4 }}>
+        <Slider
+          aria-label="Pace"
+          min={2.5 * 60}
+          max={8 * 60}
+          value={secondsPerKm}
+          onChange={handleChange}
+        />
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Slow fill="currentColor" />
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Fast fill="currentColor" />
+          </Box>
+        </Box>
+      </Box>
     </>
   );
 }
