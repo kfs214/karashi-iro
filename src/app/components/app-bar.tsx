@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 
 export function AppBar() {
   return (
-    <MUIAppBar position="fixed" sx={{ zIndex: 2000 }}>
+    <MUIAppBar position="fixed" sx={{ zIndex: 2000, bgcolor: '#da003d' }}>
       <Toolbar>
         <img src="/funchan.svg" width={32} height={32} alt="logo" />
         <Typography
