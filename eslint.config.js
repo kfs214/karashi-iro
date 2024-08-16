@@ -23,6 +23,7 @@ export default tseslint.config({
     ...react.configs.recommended.rules,
     ...react.configs['jsx-runtime'].rules,
     ...reactHooks.configs.recommended.rules,
+    'react/self-closing-comp': 'warn',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
